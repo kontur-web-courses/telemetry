@@ -1,0 +1,91 @@
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5149
+LogRecord.Timestamp:               2024-11-19T10:49:38.2320330Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Now listening on: {address}
+LogRecord.Attributes (Key:Value):
+    address: http://localhost:5149
+    OriginalFormat (a.k.a Body): Now listening on: {address}
+LogRecord.EventId:                 14
+LogRecord.EventName:               ListeningOnAddress
+
+Resource associated with LogRecord:
+service.name: TelemetryExample
+service.instance.id: 6f6f22d0-8012-45b4-befd-a177eafae2bc
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.10.0
+
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+LogRecord.Timestamp:               2024-11-19T10:49:38.2432820Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Application started. Press Ctrl+C to shut down.
+LogRecord.Attributes (Key:Value):
+    OriginalFormat (a.k.a Body): Application started. Press Ctrl+C to shut down.
+
+Resource associated with LogRecord:
+service.name: TelemetryExample
+service.instance.id: 6f6f22d0-8012-45b4-befd-a177eafae2bc
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.10.0
+
+LogRecord.Timestamp:               2024-11-19T10:49:38.2439978Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Hosting environment: {EnvName}
+LogRecord.Attributes (Key:Value):
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+    EnvName: Development
+    OriginalFormat (a.k.a Body): Hosting environment: {EnvName}
+
+Resource associated with LogRecord:
+service.name: TelemetryExample
+service.instance.id: 6f6f22d0-8012-45b4-befd-a177eafae2bc
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.10.0
+
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/pavelresh/college/kontur-backend/telemetry
+LogRecord.Timestamp:               2024-11-19T10:49:38.2441789Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Content root path: {ContentRoot}
+LogRecord.Attributes (Key:Value):
+    ContentRoot: /home/pavelresh/college/kontur-backend/telemetry
+    OriginalFormat (a.k.a Body): Content root path: {ContentRoot}
+
+Resource associated with LogRecord:
+service.name: TelemetryExample
+service.instance.id: 6f6f22d0-8012-45b4-befd-a177eafae2bc
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.10.0
+
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+LogRecord.Timestamp:               2024-11-19T10:49:49.4908074Z
+LogRecord.CategoryName:            Microsoft.Hosting.Lifetime
+LogRecord.Severity:                Info
+LogRecord.SeverityText:            Information
+LogRecord.Body:                    Application is shutting down...
+LogRecord.Attributes (Key:Value):
+    OriginalFormat (a.k.a Body): Application is shutting down...
+
+Resource associated with LogRecord:
+service.name: TelemetryExample
+service.instance.id: 6f6f22d0-8012-45b4-befd-a177eafae2bc
+telemetry.sdk.name: opentelemetry
+telemetry.sdk.language: dotnet
+telemetry.sdk.version: 1.10.0
+

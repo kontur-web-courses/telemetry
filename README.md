@@ -111,6 +111,7 @@ services:
 Создай рядом с `compose.yaml` файл `prometheus.yml` с содержимым
 
 ```yaml
+scrape_configs:
  - job_name: "prometheus"
   # Override the global default and scrape targets from this job every 5 seconds.
    scrape_interval: 5s

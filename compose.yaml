@@ -1,0 +1,24 @@
+services:
+  prometheus:
+    image: "prom/prometheus"
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  grafana:
+    image: "grafana/grafana-oss"
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  server:
+    build: .
+    ports:
+      - "5149:5149"
+      - "9000:9000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
