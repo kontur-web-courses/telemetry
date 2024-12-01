@@ -1,7 +1,34 @@
+using OpenTelemetry.Logs;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+using telemetry;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Logging.AddOpenTelemetry(options =>
+{
+    options
+        .SetResourceBuilder(
+            ResourceBuilder.CreateDefault()
+                .AddService("TelemetryExample"))
+        .AddConsoleExporter();
+});
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource => resource.AddService("TelemetryExample"))
+    .WithTracing(tracing => tracing
+        .AddAspNetCoreInstrumentation()
+        .AddConsoleExporter())
+    .WithMetrics(metrics => metrics
+        .AddPrometheusExporter()
+        .AddAspNetCoreInstrumentation()
+        .AddConsoleExporter()
+        .AddMeter(nameof(Metrics)));
+
+builder.Services.AddSingleton<Metrics>();
 
 var app = builder.Build();
 
@@ -20,6 +47,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.MapRazorPages();
 
 app.Run();
