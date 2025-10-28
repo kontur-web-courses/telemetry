@@ -2,6 +2,7 @@ using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using telemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,9 @@ builder.Services.AddOpenTelemetry()
     .WithMetrics(metrics => metrics
         .AddPrometheusExporter()
         .AddAspNetCoreInstrumentation()
-        .AddConsoleExporter());
+        .AddConsoleExporter()
+        .AddMeter(nameof(Metrics))
+    );
 
 var app = builder.Build();
 
