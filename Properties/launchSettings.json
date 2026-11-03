@@ -4,9 +4,12 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5149",
+      "applicationUrl": "http://0.0.0.0:5149",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "OTEL_SERVICE_NAME": "yeezy-telemetry",
+        "OTEL_EXPORTER_OTLP_ENDPOINT": "https://fiit-backend-telemetry.duckdns.org",
+        "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf"
       }
     }
   }

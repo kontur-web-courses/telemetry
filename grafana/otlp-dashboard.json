@@ -1,0 +1,48 @@
+{
+  "uid": "telemetry",
+  "title": "yeezy-telemetry: OTLP",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "5s",
+  "time": { "from": "now-15m", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Index requests",
+      "type": "timeseries",
+      "datasource": { "type": "prometheus", "uid": "metrics" },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "fieldConfig": {
+        "defaults": { "unit": "short", "min": 0 },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "requests_index_count_pcs_total{service_name=\"yeezy-telemetry\"}",
+          "legendFormat": "{{service_name}}",
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Kestrel connection duration: p95 by service",
+      "type": "timeseries",
+      "datasource": { "type": "prometheus", "uid": "metrics" },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "fieldConfig": {
+        "defaults": { "unit": "s", "min": 0 },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "histogram_quantile(0.95, sum by (service_name, le) (rate(kestrel_connection_duration_seconds_bucket{service_name=\"yeezy-telemetry\"}[1m])))",
+          "legendFormat": "{{service_name}}",
+          "range": true
+        }
+      ]
+    }
+  ]
+}
