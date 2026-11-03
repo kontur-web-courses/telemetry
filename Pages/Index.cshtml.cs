@@ -8,9 +8,10 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly Metrics _metrics;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(ILogger<IndexModel> logger, Metrics metrics)
     {
         _logger = logger;
+        _metrics = metrics;
     }
 
     public void OnGet()
