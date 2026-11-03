@@ -1,3 +1,4 @@
+using OpenTelemetry;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
@@ -14,11 +15,11 @@ builder.Logging.AddOpenTelemetry(options =>
     options
         .SetResourceBuilder(
             ResourceBuilder.CreateDefault()
-                .AddService("TelemetryExample"))
+                .AddService("telemetry305"))
         .AddConsoleExporter();
 });
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(resource => resource.AddService("TelemetryExample"))
+    .ConfigureResource(resource => resource.AddService("telemetry305"))
     .WithTracing(tracing => tracing
         .AddAspNetCoreInstrumentation()
         .AddConsoleExporter())
@@ -26,7 +27,8 @@ builder.Services.AddOpenTelemetry()
         .AddMeter(nameof(Metrics))
         .AddPrometheusExporter()
         .AddAspNetCoreInstrumentation()
-        .AddConsoleExporter());
+        .AddConsoleExporter())
+    .UseOtlpExporter();
 
 builder.Services.AddSingleton<Metrics>();
 
