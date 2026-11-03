@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,10 +10,10 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly Metrics _metrics;
 
-    public IndexModel(ILogger<IndexModel> logger, Metrics metrics)
+    public IndexModel(ILogger<IndexModel> logger, IMeterFactory factory)
     {
         _logger = logger;
-        _metrics = metrics;
+        _metrics = new Metrics(factory);
     }
 
     public void OnGet()
