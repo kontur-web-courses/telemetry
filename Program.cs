@@ -5,7 +5,7 @@ using OpenTelemetry.Trace;
 using telemetry;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var serviceName = builder.Configuration["OTEL_SERVICE_NAME"] ?? "komarovww";
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<Metrics>();
@@ -15,11 +15,11 @@ builder.Logging.AddOpenTelemetry(options =>
     options
         .SetResourceBuilder(
             ResourceBuilder.CreateDefault()
-                .AddService("TelemetryExample"))
+                .AddService(serviceName))
         .AddConsoleExporter();
 });
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(resource => resource.AddService("TelemetryExample"))
+    .ConfigureResource(resource => resource.AddService(serviceName))
     .WithTracing(tracing => tracing
         .AddAspNetCoreInstrumentation()
         .AddConsoleExporter())
